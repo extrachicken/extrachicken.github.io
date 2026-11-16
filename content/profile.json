@@ -2,13 +2,13 @@
   "name": "Андрей Соболев",
   "nameEn": "Andrey Sobolev",
   "handle": "extrachicken",
-  "role": "C#/.NET Developer · AI & Automation",
+  "role": "Machine Learning · C#/.NET Developer",
   "location": "Череповец · удалённая работа",
   "email": "sobolevonelov@yandex.ru",
   "telegram": "https://t.me/cringe_detector",
   "github": "https://github.com/extrachicken",
-  "focus": "Приложения, ИИ-автоматизация, данные",
-  "about": "Разрабатываю приложения на C#/.NET и Python, работаю с данными и автоматизирую рабочие процессы. На стажировке в Северстали занимаюсь промышленным ПО, в личных проектах — веб-приложениями, API и машинным обучением.",
+  "focus": "Машинное обучение, C#/.NET, автоматизация",
+  "about": "Занимаюсь машинным обучением и разработкой на C#/.NET: работаю с данными, обучаю модели и автоматизирую рабочие процессы. На стажировке в Северстали разрабатываю промышленное ПО, в личных проектах — ML-модели и веб-приложения.",
   "status": "Открыт к предложениям о работе",
   "education": "ЧГУ · Прикладная математика и информатика",
   "educationDetail": "Профиль «Искусственный интеллект». Планируемый выпуск — 2027.",
@@ -20,30 +20,186 @@
       "company": "Северсталь",
       "dates": "июль 2026 — 1 декабря 2026 (план)",
       "place": "Череповец",
-      "tags": ["C#", ".NET", "Avalonia", "MVVM", "SQL"],
-      "bullets": ["Разрабатываю приложение для автоматизации взвешивания железнодорожных вагонов: приём и обработка показаний оборудования, интерфейс оператора.", "Работаю с определением типов вагонов по весовым данным, моделями данных и взаимодействием компонентов.", "Дорабатываю интерфейс оператора и проверяю корректность отображения весовых данных."]
+      "tags": [
+        "C#",
+        ".NET",
+        "Avalonia",
+        "MVVM",
+        "SQL"
+      ],
+      "bullets": [
+        "Разрабатываю приложение для автоматизации взвешивания железнодорожных вагонов: приём и обработка показаний оборудования, интерфейс оператора.",
+        "Работаю с определением типов вагонов по весовым данным, моделями данных и взаимодействием компонентов.",
+        "Дорабатываю интерфейс оператора и проверяю корректность отображения весовых данных."
+      ]
     },
     {
       "role": "Саунд-дизайнер · автоматизация TTS",
       "company": "Самолов групп",
       "dates": "март 2025 — май 2026",
       "place": "Обучающие игры",
-      "tags": ["Python", "ElevenLabs API", "TTS"],
-      "bullets": ["Подготавливал диалоги, настраивал TTS-модели и выполнял постобработку аудио.", "Написал скрипт генерации озвучки через ElevenLabs API: задача, занимавшая неделю, стала выполняться за один день."]
+      "tags": [
+        "Python",
+        "ElevenLabs API",
+        "TTS"
+      ],
+      "bullets": [
+        "Подготавливал диалоги, настраивал TTS-модели и выполнял постобработку аудио.",
+        "Написал скрипт генерации озвучки через ElevenLabs API: задача, занимавшая неделю, стала выполняться за один день."
+      ]
     }
   ],
   "projects": [
-    {"name":"DND Workbench","subtitle":"Локальное приложение для D&D 2014","url":"https://github.com/extrachicken/DND-Workbench","linkLabel":"github","tags":["TypeScript","React","IndexedDB","PWA"],"bullets":["Разрабатываю приложение для персонажей, кампаний и заметок с локальным хранением и резервными копиями.","Рабочий прототип: правила и каталог постепенно дополняются."]},
-    {"name":"MagicRPG Guides","subtitle":"Сайт игрового сообщества","url":"https://lolimagic.com/","linkLabel":"website","tags":["Web","Community"],"bullets":["Развиваю и поддерживаю сайт сообщества: гайды и гонки для игроков."]},
-    {"name":"Auto Voiceovers","subtitle":"Автоматическая озвучка сценариев","url":"https://github.com/extrachicken/auto-voiceovers","linkLabel":"github","tags":["Python","ElevenLabs API","TTS"],"bullets":["Скрипт извлекает реплики персонажей из DOCX/TXT, генерирует озвучку через API и раскладывает аудио по папкам."]},
-    {"name":"Auto HR","subtitle":"Автоматизация работы с анкетами","url":"https://github.com/extrachicken/auto-HR","linkLabel":"github","tags":["Python","Flask","OpenAI API","Typeform","Google Sheets"],"bullets":["Генерация анкет по описанию вакансии, интеграция с Google Sheets и проверка обязательных требований."]},
-    {"name":"ML Labs","subtitle":"Практика анализа данных и машинного обучения","url":"https://github.com/extrachicken/ML-labs","linkLabel":"github","tags":["Python","pandas","NumPy","scikit-learn","Jupyter"],"bullets":["Учебные эксперименты: подготовка данных, кластеризация и снижение размерности."]}
+    {
+      "name": "ML Labs",
+      "subtitle": "Практика анализа данных и машинного обучения",
+      "url": "https://github.com/extrachicken/ML-labs",
+      "linkLabel": "github",
+      "tags": [
+        "Python",
+        "pandas",
+        "NumPy",
+        "scikit-learn",
+        "Jupyter"
+      ],
+      "bullets": [
+        "Учебные эксперименты: подготовка данных, кластеризация и снижение размерности."
+      ]
+    },
+    {
+      "name": "DND Workbench",
+      "subtitle": "Локальное приложение для D&D 2014",
+      "url": "https://github.com/extrachicken/DND-Workbench",
+      "linkLabel": "github",
+      "tags": [
+        "TypeScript",
+        "React",
+        "IndexedDB",
+        "PWA"
+      ],
+      "bullets": [
+        "Разрабатываю приложение для персонажей, кампаний и заметок с локальным хранением и резервными копиями.",
+        "Рабочий прототип: правила и каталог постепенно дополняются."
+      ]
+    },
+    {
+      "name": "MagicRPG Guides",
+      "subtitle": "Сайт игрового сообщества",
+      "url": "https://lolimagic.com/",
+      "linkLabel": "website",
+      "tags": [
+        "Web",
+        "Community"
+      ],
+      "bullets": [
+        "Развиваю и поддерживаю сайт сообщества: гайды и гонки для игроков."
+      ]
+    },
+    {
+      "name": "Auto Voiceovers",
+      "subtitle": "Автоматическая озвучка сценариев",
+      "url": "https://github.com/extrachicken/auto-voiceovers",
+      "linkLabel": "github",
+      "tags": [
+        "Python",
+        "ElevenLabs API",
+        "TTS"
+      ],
+      "bullets": [
+        "Скрипт извлекает реплики персонажей из DOCX/TXT, генерирует озвучку через API и раскладывает аудио по папкам."
+      ]
+    },
+    {
+      "name": "Auto HR",
+      "subtitle": "Автоматизация работы с анкетами",
+      "url": "https://github.com/extrachicken/auto-HR",
+      "linkLabel": "github",
+      "tags": [
+        "Python",
+        "Flask",
+        "OpenAI API",
+        "Typeform",
+        "Google Sheets"
+      ],
+      "bullets": [
+        "Генерация анкет по описанию вакансии, интеграция с Google Sheets и проверка обязательных требований."
+      ]
+    }
   ],
   "skills": [
-    {"title":"C# & .NET","items":["C#",".NET","ASP.NET Core","EF Core","Avalonia","MVVM"]},
-    {"title":"Web & Data","items":["TypeScript","React","SQL","PostgreSQL","SQLite","REST API"]},
-    {"title":"Python & AI","items":["Python","pandas","NumPy","scikit-learn","PyTorch","LLM API"]},
-    {"title":"Tools","items":["Git","GitHub","Docker","Linux","Jupyter","Godot"]}
+    {
+      "title": "C# & .NET",
+      "items": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "EF Core",
+        "Avalonia",
+        "MVVM"
+      ]
+    },
+    {
+      "title": "Web & Data",
+      "items": [
+        "TypeScript",
+        "React",
+        "SQL",
+        "PostgreSQL",
+        "SQLite",
+        "REST API"
+      ]
+    },
+    {
+      "title": "Machine Learning & AI",
+      "items": [
+        "Python",
+        "pandas",
+        "NumPy",
+        "scikit-learn",
+        "PyTorch",
+        "LLM API"
+      ]
+    },
+    {
+      "title": "Tools",
+      "items": [
+        "Git",
+        "GitHub",
+        "Docker",
+        "Linux",
+        "Jupyter",
+        "Godot"
+      ]
+    }
   ],
-  "relatedSkills": [["C#",".NET"],["ASP.NET Core","EF Core"],["TypeScript","React"],["Python","PyTorch"],["pandas","NumPy"],["SQL","PostgreSQL"],["Python","LLM API"]]
+  "relatedSkills": [
+    [
+      "C#",
+      ".NET"
+    ],
+    [
+      "ASP.NET Core",
+      "EF Core"
+    ],
+    [
+      "TypeScript",
+      "React"
+    ],
+    [
+      "Python",
+      "PyTorch"
+    ],
+    [
+      "pandas",
+      "NumPy"
+    ],
+    [
+      "SQL",
+      "PostgreSQL"
+    ],
+    [
+      "Python",
+      "LLM API"
+    ]
+  ]
 }
