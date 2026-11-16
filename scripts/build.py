@@ -1,4 +1,4 @@
-import json
+import json, hashlib, re
 from pathlib import Path
 from html import escape as esc
 ROOT=Path(__file__).resolve().parent.parent
@@ -13,6 +13,12 @@ projects=''.join(f'<article class="project"><h3>{esc(x["name"])} <a href="{esc(x
 skills=''.join(f'<div><h3>{esc(g["title"])}</h3>{tags(g["items"])}</div>' for g in p['skills'])
 html=(ROOT/'index.template.html').read_text()
 for key,value in {'EXPERIENCE':exp,'PROJECTS':projects,'SKILLS':skills,'NAME':esc(p['name'])}.items():html=html.replace('{{'+key+'}}',value)
+# Changed files get distinct URLs so browser caches cannot retain an older build.
+def version_asset(match):
+ path=match.group(2)
+ version=hashlib.sha256((ROOT/path).read_bytes()).hexdigest()[:12]
+ return f'{match.group(1)}="{path}?v={version}"'
+html=re.sub(r'(src|href)="(assets/[^"?]+\.(?:js|css))"',version_asset,html)
 (ROOT/'index.html').write_text(html)
 # A compact public CV; the website contains the full project list.
 cv_projects=''.join(f'<article><h3>{esc(x["name"])} <a href="{esc(x["url"])}">{esc(x["linkLabel"])}</a></h3><p>{esc(x["bullets"][0])}</p></article>' for x in p['projects'][:4])
