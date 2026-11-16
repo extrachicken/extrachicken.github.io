@@ -12,7 +12,7 @@
  const commands=[...specs.map(x=>x[0].split(' ')[0]),'pwd','date','echo','sudo','exit',...Object.keys(aliases)];
  function help(){const n=message(['Available commands:']),table=E('div',undefined,'terminal-table');specs.forEach(([a,b])=>table.append(E('span',a),E('span',b)));n.append(table,message(['Also: pwd, date, echo, sudo, exit','Tab completes · ↑/↓ history · Ctrl+L clears · Ctrl+C cancels · Ctrl+U erases']));return n}
  function run(raw){const [name,...args]=raw.trim().split(/\s+/);const command=aliases[name.toLowerCase()]||name.toLowerCase();switch(command){
- case 'help':return help();case 'fastfetch':return fastfetch();case 'whoami':return message([P.name+' — '+P.role,P.about,P.education+'. '+P.educationDetail,'','Шахматы, D&D, разработка игр и музыка.','contact — связаться со мной.']);
+ case 'help':return help();case 'fastfetch':return fastfetch();case 'whoami':return message(P.personal);
  case 'experience':return message([...P.experience.map(x=>x.role+' — '+x.company),'','open experience — подробнее.']);
  case 'projects':return message([...P.projects.map(x=>link(x.name+' ↗',x.url)),'','open projects — подробнее.']);
  case 'skills':{const n=E('div',undefined,'terminal-grid');P.skills.flatMap(g=>g.items).forEach(s=>n.append(E('span',s)));return n}
