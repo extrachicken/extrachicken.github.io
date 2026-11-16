@@ -22,19 +22,19 @@
  function layout(){
   const r=svg.getBoundingClientRect();if(!r.width)return;width=r.width;height=r.height;svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
   const columns=width>=900?4:width>=600?2:1,rows=Math.ceil(groups.length/columns);
-  nodes.forEach(n=>{n.homeX=width/columns*(n.g%columns+.5);n.homeY=columns===4?height*(n.g%2?.56:.44):height/rows*(Math.floor(n.g/columns)+.5);n.width=n.el.querySelector('text').getComputedTextLength()+28;if(!Number.isFinite(n.x)){const angle=(n.i||0)/6*Math.PI*2;n.x=n.homeX+Math.cos(angle)*35;n.y=n.homeY+Math.sin(angle)*35}});
+  nodes.forEach(n=>{const inset=columns===4?180:columns===2?Math.min(150,width*.24):width/2;n.homeX=columns===1?width/2:inset+(width-2*inset)*(n.g%columns)/(columns-1);n.homeY=columns===4?height*(n.g%2?.56:.44):height/rows*(Math.floor(n.g/columns)+.5);n.width=n.el.querySelector('text').getComputedTextLength()+28;const angle=(n.i||0)/6*Math.PI*2+n.g*.6;n.x=n.homeX+(n.hub?0:Math.cos(angle)*80);n.y=n.homeY+(n.hub?0:Math.sin(angle)*80);n.vx=n.vy=0});
   energy=1;for(let i=0;i<300;i++)step(i*16);draw();
  }
  function step(now=performance.now()){
   const scale=Math.min(1,width/600);
   for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
-   const a=nodes[i],b=nodes[j],dx=b.x-a.x||.1,dy=b.y-a.y,d2=Math.max(25,dx*dx+dy*dy),force=220*scale*energy/d2;
+   const a=nodes[i],b=nodes[j],dx=b.x-a.x||.1,dy=b.y-a.y,d2=Math.max(25,dx*dx+dy*dy),force=220*scale*energy/d2*(a.g===b.g?1:.08);
    a.vx-=dx*force;a.vy-=dy*force;b.vx+=dx*force;b.vy+=dy*force;
    const overlapX=(a.width+b.width)/2-Math.abs(dx),overlapY=40-Math.abs(dy);
    if(overlapX>0&&overlapY>0){if(overlapX<overlapY){const push=Math.sign(dx)*overlapX*.25;a.vx-=push;b.vx+=push}else{const push=(Math.sign(dy)||1)*overlapY*.25;a.vy-=push;b.vy+=push}}
   }
   edges.forEach(({a,b})=>{const dx=b.x-a.x,dy=b.y-a.y,d=Math.max(1,Math.hypot(dx,dy)),f=(d-(a.hub||b.hub?80:70)*scale)/d*.1*energy;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f});
-  nodes.forEach(n=>{n.vx+=(n.homeX-n.x)*.04*energy;n.vy+=(n.homeY-n.y)*.04*energy;if(!Effects.motion.matches){n.vx+=Math.cos(now/1800+n.phase)*.04;n.vy+=Math.sin(now/2300+n.phase)*.04}if(drag?.node===n){n.vx=n.vy=0;return}n.vx*=.6;n.vy*=.6;n.x=Math.max(n.width/2,Math.min(width-n.width/2,n.x+n.vx));n.y=Math.max(n.radius+4,Math.min(height-n.radius-18,n.y+n.vy))});
+  nodes.forEach(n=>{n.vx+=(n.homeX-n.x)*(n.hub?.12:.04)*energy;n.vy+=(n.homeY-n.y)*(n.hub?.12:.04)*energy;if(!Effects.motion.matches){n.vx+=Math.cos(now/1800+n.phase)*.04;n.vy+=Math.sin(now/2300+n.phase)*.04}if(drag?.node===n){n.vx=n.vy=0;return}n.vx*=.6;n.vy*=.6;n.x=Math.max(n.width/2,Math.min(width-n.width/2,n.x+n.vx));n.y=Math.max(n.radius+4,Math.min(height-n.radius-18,n.y+n.vy))});
   energy=Math.max(energy*.985,Effects.motion.matches?0:.04);
  }
  function draw(){nodes.forEach(n=>n.el.setAttribute('transform',`translate(${n.x},${n.y})`));edges.forEach(({a,b,el})=>{el.setAttribute('x1',a.x);el.setAttribute('y1',a.y);el.setAttribute('x2',b.x);el.setAttribute('y2',b.y)})}
